@@ -1,5 +1,5 @@
 module.exports = {
-  nurseries: [
+  info: [
     [
       {
         id: '1',
