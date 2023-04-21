@@ -3,14 +3,13 @@ const data = require('./data.ts');
 const logger = require('pino-http');
 const app = express();
 
-// GET info by ID
-app.get('/api/info/:id', async (req, res) => {
-  try {
-    logger(req, res);
 
-    const { id } = req.params;
-    const info = await data.info[0].find((item) => item.id === id);
-    if (info) {
+// GET all info
+app.get('/api/info', async (_req, res) => {
+  try {
+    logger(_req, res);
+    const info = await data.info[0];
+    if (info.length > 0) {
       return res.status(200).json(info);
     } else {
       return res.status(204).end();
@@ -21,12 +20,14 @@ app.get('/api/info/:id', async (req, res) => {
   }
 });
 
-// GET all info
-app.get('/api/info', async (_req, res) => {
+// GET info by ID
+app.get('/api/info/:id', async (req, res) => {
   try {
-    logger(_req, res);
-    const info = await data.info[0];
-    if (info.length > 0) {
+    logger(req, res);
+
+    const { id } = req.params;
+    const info = await data.info[0].find((item) => item.id === id);
+    if (info) {
       return res.status(200).json(info);
     } else {
       return res.status(204).end();
