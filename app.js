@@ -7,7 +7,7 @@ const app = express();
 // GET all info
 app.get('/api/info', async (_req, res) => {
   try {
-    logger(_req, res);
+
     const info = await data.info[0];
     if (info.length > 0) {
       return res.status(200).json(info);
