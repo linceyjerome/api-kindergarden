@@ -19,9 +19,9 @@
   "author": "lincey jerome",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.4",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "^4.22.1",
     "google-images": "^0.1.4",
     "google-maps-react": "^2.0.6",
     "googleapis": "^118.0.0",
